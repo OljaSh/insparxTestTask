@@ -1,0 +1,10 @@
+Run all test
+ mvn clean test
+-----------------------------
+Run selected  class
+  mvn -Dtest=LoginPageTest
+-----------------------------
+Run a single test
+ mvn -Dtest=LoginPageTest#IncorrectUserNameLoginPage test
+
+-----------------------------
