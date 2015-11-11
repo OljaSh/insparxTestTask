@@ -36,7 +36,11 @@ public class LoginPageTest {
         driver.findElement(By.id("username")).sendKeys(wrongUserName);
         driver.findElement(By.id("password")).sendKeys(Password);
         driver.findElement(By.id("login_button")).click();
-
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Assert.assertTrue(driver.findElement(By.id("errorMsg")).getText().matches("Email address and password do not match"));
 
         driver.close();
@@ -52,7 +56,7 @@ public class LoginPageTest {
         driver.findElement(By.id("login_button")).click();
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -91,8 +95,8 @@ public class LoginPageTest {
         driver.get(URL);
         driver.findElement(By.className("be2-green-button")).click();
 
-        driver.findElement(By.id("be2_login_username")).sendKeys("shsevennnnnn@hotmail.com");
-        driver.findElement(By.id("be2_login_password")).sendKeys("test1234");
+        driver.findElement(By.id("be2_login_username")).sendKeys(wrongUserName);
+        driver.findElement(By.id("be2_login_password")).sendKeys(Password);
         driver.findElement(By.id("be2_loginButton")).click();
 
         Assert.assertTrue(driver.findElement(By.className("be2-dialog-title")).isDisplayed());
@@ -106,8 +110,8 @@ public class LoginPageTest {
         driver.get(URL);
         driver.findElement(By.className("be2-green-button")).click();
 
-        driver.findElement(By.id("be2_login_username")).sendKeys("shseven@hotmail.com");
-        driver.findElement(By.id("be2_login_password")).sendKeys("test1234test1234");
+        driver.findElement(By.id("be2_login_username")).sendKeys(UserName);
+        driver.findElement(By.id("be2_login_password")).sendKeys(wrongPassword);
         driver.findElement(By.id("be2_loginButton")).click();
 
         Assert.assertTrue(driver.findElement(By.className("be2-dialog-title")).isDisplayed());
@@ -123,8 +127,8 @@ public class LoginPageTest {
         driver.get(URL);
         driver.findElement(By.className("be2-green-button")).click();
 
-        driver.findElement(By.id("be2_login_username")).sendKeys("shseven@hotmail.com");
-        driver.findElement(By.id("be2_login_password")).sendKeys("test1234");
+        driver.findElement(By.id("be2_login_username")).sendKeys(UserName);
+        driver.findElement(By.id("be2_login_password")).sendKeys(Password);
         driver.findElement(By.id("be2_loginButton")).click();
 
         try {
